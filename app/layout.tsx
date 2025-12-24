@@ -5,14 +5,15 @@ import Navbar from "@/components/Home/Navbar/Navbar";
 import Footer from "@/components/Home/Footer/Footer";
 import ScrollToTop from "@/components/Helper/ScrollToTop";
 import CursorGlow from "@/components/Helper/CursorGlow";
+import ParticleBackground from "@/components/Home/Hero/ParticleBackground";
 
 const font = Inter({
-  weight:['100','200','300','400','500','600','700','800','900'],
-  subsets:['latin']
-})
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "Atharva PortFolio",
+  title: "Atharva's PortFolio",
   description: "This portfolio website is in development.",
 };
 
@@ -23,14 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${font.className} antialiased bg-[#0d0d1f]`}
-      >
+      <body className={`${font.className} antialiased bg-[#0d0d1f]`}>
+      <ParticleBackground />
         <CursorGlow />
-        <Navbar/>
+        <Navbar />
         {children}
-        <Footer/>
-        <ScrollToTop/>
+        <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );

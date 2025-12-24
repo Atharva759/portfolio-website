@@ -27,11 +27,9 @@ export default function ParticleBackground() {
 
   const options: ISourceOptions = useMemo(
     () => ({
-      background: {
-        color: { value: "transparent" }, // Transparent for overlay use
-      },
       fullScreen: {
-        enable: false,
+        enable: true,
+        zIndex: -1,
       },
       fpsLimit: 60,
       interactivity: {
@@ -79,7 +77,6 @@ export default function ParticleBackground() {
       id="tsparticles"
       particlesLoaded={particlesLoaded}
       options={options}
-      className="absolute inset-0 "
     />
   );
 }

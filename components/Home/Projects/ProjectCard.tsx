@@ -1,14 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { TECH_STACK } from "@/constant/techStack";
 
 type TechKey = keyof typeof TECH_STACK;
 
 type Props = {
-  image: string;
+  images: string[];
   title: string;
   desc: string;
   tech: TechKey[];
@@ -16,7 +17,18 @@ type Props = {
   live?: string;
 };
 
-const ProjectCard = ({ image, title, desc, tech, github, live }: Props) => {
+const ProjectCard = ({ images, title, desc, tech, github, live }: Props) => {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  useEffect(() => {
+    if (paused) return;
+
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [paused, images.length]);
+
   return (
     <motion.div
       whileHover={{ y: -8 }}
@@ -24,9 +36,41 @@ const ProjectCard = ({ image, title, desc, tech, github, live }: Props) => {
       className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden
       hover:border-cyan-400/40 transition-all duration-300"
     >
-      {/* Image */}
-      <div className="relative h-55 w-full">
-        <Image src={image} alt={title} fill className="object-cover" />
+      {/* Images Slideshow*/}
+      <div
+        className="relative h-74 w-full overflow-hidden"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 1.03 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={images[index]}
+              alt="title"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+          {images.map((_, i) => (
+            <span
+              key={i}
+              className={`h-2 w-2 rounded-full transition ${
+                i === index ? "bg-gray-400" : "bg-white/40"
+              }`}
+            ></span>
+          ))}
+        </div>
       </div>
 
       {/* Content */}

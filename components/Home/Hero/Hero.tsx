@@ -1,10 +1,10 @@
 "use client";
-
 import Image from "next/image";
 import { BsArrowRight } from "react-icons/bs";
 import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
 import Particlebackground from "./ParticleBackground";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -17,7 +17,15 @@ const Hero = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative z-10 flex flex-col items-center text-center px-4"
       >
-        {/* Profile Image */}
+        {/* Profile Image will be added after wards
+        <Image
+            src="/images/profile.jpg"
+            alt="Atharva Khadake"
+            width={150}
+            height={150}
+            className="relative rounded-full border-4 border-cyan-400/40"
+          />
+          */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -25,13 +33,6 @@ const Hero = () => {
           className="relative"
         >
           <div className="absolute inset-0 rounded-full bg-cyan-400 blur-xl opacity-30" />
-          <Image
-            src="/images/s1.jpg"
-            alt="Atharva Khadake"
-            width={150}
-            height={150}
-            className="relative rounded-full border-4 border-cyan-400/40"
-          />
         </motion.div>
 
         {/* Heading */}
@@ -75,24 +76,21 @@ const Hero = () => {
         </motion.h2>
 
         {/* CTA */}
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-10 px-10 py-4 rounded-full text-lg font-medium
+        <Link href="#projects">
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-10 px-10 py-4 rounded-full text-lg font-medium
           bg-blue-700 hover:bg-blue-800 transition shadow-lg
-          shadow-blue-700/30 flex items-center gap-2"
-          onClick={() =>
-            document
-              .getElementById("projects")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-        >
-          See my work
-          <BsArrowRight className="w-5 h-5" />
-        </motion.button>
+          shadow-blue-700/30 flex items-center gap-2 cursor-pointer"
+          >
+            See my work
+            <BsArrowRight className="w-5 h-5" />
+          </motion.button>
+        </Link>
       </motion.div>
     </section>
   );

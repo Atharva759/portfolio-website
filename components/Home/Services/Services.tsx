@@ -32,7 +32,12 @@ const Services = () => {
         }}
         className="w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 mt-20"
       >
-        <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+        >
           <ServiceCard
             icon="/images/s2.png"
             name="Frontend Engineering"
@@ -40,7 +45,12 @@ const Services = () => {
           />
         </motion.div>
 
-        <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+        >
           <ServiceCard
             icon="/images/s3.png"
             name="Backend & APIs"
@@ -48,7 +58,12 @@ const Services = () => {
           />
         </motion.div>
 
-        <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+        >
           <ServiceCard
             icon="/images/s1.png"
             name="Databases & Cloud"
@@ -56,7 +71,12 @@ const Services = () => {
           />
         </motion.div>
 
-        <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+        >
           <ServiceCard
             icon="/images/s4.png"
             name="Scalable Systems"

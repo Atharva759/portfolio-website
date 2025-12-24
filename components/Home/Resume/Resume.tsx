@@ -1,7 +1,11 @@
 "use client";
 
-import React from "react";
-import { FaBook, FaDatabase, FaGraduationCap, FaPercentage } from "react-icons/fa";
+import {
+  FaBook,
+  FaDatabase,
+  FaGraduationCap,
+  FaPercentage,
+} from "react-icons/fa";
 import { BiBadge } from "react-icons/bi";
 import ResumeCard from "./ResumeCard";
 
@@ -9,7 +13,6 @@ const Resume = () => {
   return (
     <section className="pt-24 pb-20">
       <div className="w-[90%] sm:w-[70%] mx-auto">
-
         {/* EXPERIENCE */}
         <div>
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-12">
@@ -34,9 +37,7 @@ const Resume = () => {
             Icon={BiBadge}
             role="B.Tech – Electronics & Telecommunication Engineering, VIIT Pune"
             date="Aug 2023 – May 2027"
-            meta={[
-              { icon: FaGraduationCap, label: "CGPA: 8.79" },
-            ]}
+            meta={[{ icon: FaGraduationCap, label: "CGPA: 8.79" }]}
             desc="Relevant coursework includes Data Structures, Object-Oriented Programming, Operating Systems, Machine Learning and Design & Analysis of Algorithms."
           />
 
@@ -44,13 +45,10 @@ const Resume = () => {
             Icon={FaBook}
             role="Higher Secondary Certificate (HSC) – Maharashtra Board"
             date="Jun 2021 – Mar 2023"
-            meta={[
-              { icon: FaPercentage, label: "77.67%" },
-            ]}
+            meta={[{ icon: FaPercentage, label: "77.67%" }]}
             desc="Completed higher secondary education with a focus on science and mathematics."
           />
         </div>
-
       </div>
     </section>
   );

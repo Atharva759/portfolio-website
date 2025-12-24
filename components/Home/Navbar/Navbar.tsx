@@ -8,6 +8,8 @@ import { HiBars3BottomRight } from "react-icons/hi2";
 import { motion, AnimatePresence } from "framer-motion";
 import { NavLinks } from "@/constant/contant";
 
+const cvdrive = process.env.NEXT_PUBLIC_CV_DRIVE_URL;
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -59,7 +61,7 @@ const Navbar = () => {
           {/* Actions */}
           <div className="flex items-center gap-4">
             <a
-              href="/Atharva_Khadake_CV_v2.pdf"
+              href={cvdrive}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 px-6 py-3 rounded-lg

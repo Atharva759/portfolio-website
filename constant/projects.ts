@@ -3,7 +3,7 @@ import { TECH_STACK } from "@/constant/techStack";
 type TechKey = keyof typeof TECH_STACK;
 
 export const PROJECTS: {
-  image: string;
+  images: string[];
   title: string;
   desc: string;
   tech: TechKey[];
@@ -11,7 +11,7 @@ export const PROJECTS: {
   live?: string;
 }[] = [
   {
-    image: "/images/p1.jpg",
+    images: ["/images/aiquiz/p1.png","/images/aiquiz/p2.png","/images/aiquiz/p3.png"],
     title: "AI-Powered Quiz Generator",
     desc:
       "A scalable quiz generation platform powered by GenAI, built using Spring Boot microservices with secure authentication and PostgreSQL logging.",
@@ -19,7 +19,7 @@ export const PROJECTS: {
     github: "https://github.com/Atharva759/AI-Quiz-Project",
   },
   {
-    image: "/images/p2.jpg",
+    images: ["/images/ems/e1.png","/images/ems/e2.png","/images/ems/e3.png","/images/ems/e4.png"],
     title: "Employee Management System",
     desc:
       "A full-stack employee portal for attendance, leave management, and approvals with JWT-based authentication and optimized database queries.",
@@ -28,7 +28,7 @@ export const PROJECTS: {
     live: "https://employee-management-sys-afk.vercel.app/",
   },
   {
-    image: "/images/p3.jpg",
+    images: ["/images/pwm/pwm1.png","/images/pwm/pwm2.png"],
     title: "Password Manager",
     desc:
       "A secure and responsive password manager with authentication, real-time sync, and modern UI.",
