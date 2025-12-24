@@ -2,17 +2,27 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaCode } from "react-icons/fa";
 import { BiDownload } from "react-icons/bi";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { motion, AnimatePresence } from "framer-motion";
 import { NavLinks } from "@/constant/contant";
-
+import { TECH_STACK } from "@/constant/techStack";
 const cvdrive = process.env.NEXT_PUBLIC_CV_DRIVE_URL;
 
 const Navbar = () => {
+  const ICONS = Object.values(TECH_STACK);
+  const [iconIndex, setIconIndex] = useState(0);
+
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIconIndex((prev) => (prev + 1) % ICONS.length);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [ICONS.length]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -26,22 +36,38 @@ const Navbar = () => {
       <motion.nav
         initial={{ y: -80 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 w-full z-10000 transition-all duration-300
-        ${
-          scrolled
-            ? "bg-[#0f142ed9] backdrop-blur-lg shadow-lg border-b border-white/10"
-            : "bg-transparent"
-        }`}
+        className="fixed top-3 w-full z-10000 transition-all duration-300
+         rounded-full border border-white/10 backdrop-blur-2xl bg-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.35)]
+        "
       >
         <div className="h-[11vh] w-[90%] mx-auto flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-              <FaCode className="text-black w-5 h-5" />
+            <div
+              className="w-15 h-15 rounded-full
+     backdrop-blur-xl 
+    flex items-center justify-center
+    shadow-md overflow-hidden"
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={iconIndex}
+                  initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  {(() => {
+                    const {icon:Icon,color} = ICONS[iconIndex];
+                    return (<Icon className="w-10 h-10 text-black" style={{color}} />);
+                  })()}
+                </motion.div>
+              </AnimatePresence>
             </div>
-            <h1 className="hidden sm:block text-2xl font-bold text-white tracking-wide">
-              ATHARVA
-            </h1>
+
+            <span className="hidden sm:block text-xl font-semibold text-white">
+              Atharva&apos;s Portfolio
+            </span>
           </div>
 
           {/* Desktop Nav */}
@@ -64,13 +90,12 @@ const Navbar = () => {
               href={cvdrive}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 px-6 py-3 rounded-lg
-              bg-blue-700 hover:bg-blue-800 transition text-white text-sm"
+              className="hidden sm:flex items-center gap-2 px-6 py-3 rounded-full
+                                      bg-blue-700 hover:bg-blue-800 transition text-white text-sm w-fit"
             >
               <BiDownload className="w-5 h-5" />
               Download CV
             </a>
-
             <HiBars3BottomRight
               className="w-8 h-8 text-white cursor-pointer lg:hidden"
               onClick={() => setOpen(true)}

@@ -1,6 +1,7 @@
 "use client";
-import { BiEnvelope, BiMap, BiPhone } from "react-icons/bi";
+import { BiEnvelope, BiMap, BiPhone, BiDownload } from "react-icons/bi";
 import { SiCodeforces } from "react-icons/si";
+const cvdrive = process.env.NEXT_PUBLIC_CV_DRIVE_URL;
 
 const Contact = () => {
   return (
@@ -41,6 +42,16 @@ const Contact = () => {
                 Pune, Maharashtra, India
               </span>
             </div>
+            <a
+              href={cvdrive}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-2 px-6 py-3 rounded-full
+                          bg-blue-700 hover:bg-blue-800 transition text-white text-sm w-fit"
+            >
+              <BiDownload className="w-5 h-5" />
+              Download CV
+            </a>
           </div>
 
           {/* Social Links */}
