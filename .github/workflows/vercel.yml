@@ -1,4 +1,4 @@
-name: Atharva's PortFolio CI/CD
+name: Atharva's CI/CD
 
 on:
   push:
