@@ -1,7 +1,39 @@
 "use client";
 
+import { TECH_STACK } from "@/constant/techStack";
 import ServiceCard from "./ServiceCard";
 import { motion } from "framer-motion";
+
+const services: Array<{
+  tech:keyof typeof TECH_STACK;
+  name:string;
+  desc:string;
+}> = [
+  {
+            tech: "react",
+            name: "Frontend Engineering",
+            desc:
+              "Building responsive, accessible interfaces with React and Tailwind, focused on performance and clean UX.",
+          },
+          {
+            tech: "node",
+            name: "Backend & APIs",
+            desc:
+              "Designing secure, scalable backends using Spring Boot and Node.js with robust REST APIs.",
+          },
+          {
+            tech: "postgresql",
+            name: "Databases & Cloud",
+            desc:
+              "Optimizing data layers with PostgreSQL, MongoDB, MySQL, and deploying on AWS.",
+          },
+          {
+            tech: "springboot",
+            name: "Scalable Systems",
+            desc:
+              "Architecting production-ready systems with microservices, gateways, and real-world deployments.",
+          },
+];
 
 const Services = () => {
   return (
@@ -47,32 +79,7 @@ const Services = () => {
         }}
         className="relative z-10 w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mt-20"
       >
-        {[
-          {
-            tech: "react",
-            name: "Frontend Engineering",
-            desc:
-              "Building responsive, accessible interfaces with React and Tailwind, focused on performance and clean UX.",
-          },
-          {
-            tech: "node",
-            name: "Backend & APIs",
-            desc:
-              "Designing secure, scalable backends using Spring Boot and Node.js with robust REST APIs.",
-          },
-          {
-            tech: "postgresql",
-            name: "Databases & Cloud",
-            desc:
-              "Optimizing data layers with PostgreSQL, MongoDB, MySQL, and deploying on AWS.",
-          },
-          {
-            tech: "springboot",
-            name: "Scalable Systems",
-            desc:
-              "Architecting production-ready systems with microservices, gateways, and real-world deployments.",
-          },
-        ].map((service, i) => (
+        {services.map((service, i) => (
           <motion.div
             key={i}
             variants={{

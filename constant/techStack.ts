@@ -128,6 +128,6 @@ export const TECH_STACK = {
   firebase:{
     label:"Firebase",
     icon:SiFirebase,
-    color:"EED202"
+    color:"#EED202"
   }
 } as const;
