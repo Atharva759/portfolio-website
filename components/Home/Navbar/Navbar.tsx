@@ -89,7 +89,7 @@ const Navbar = () => {
               href={cvdrive}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 px-6 py-3 rounded-full
+              className="sm:flex items-center gap-2 px-6 py-3 rounded-full
                                       bg-blue-700 hover:bg-blue-800 transition text-white text-sm w-fit"
             >
               <BiDownload className="w-5 h-5" />

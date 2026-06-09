@@ -39,7 +39,7 @@ const Contact = () => {
             <span className="text-lg text-gray-300">Pune, Maharashtra, India</span>
           </div>
 
-          {cvdrive && (
+          
             <a
               href={cvdrive}
               target="_blank"
@@ -50,7 +50,7 @@ const Contact = () => {
               <BiDownload className="w-5 h-5" />
               Download CV
             </a>
-          )}
+          
         </div>
 
         {/* Social Links */}
