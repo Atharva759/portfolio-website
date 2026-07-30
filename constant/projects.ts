@@ -10,12 +10,30 @@ export const PROJECTS: {
   github?: string;
   live?: string;
 }[] = [
+    {
+    images: [
+      "/images/csvleadimp/c1.png",
+      "/images/csvleadimp/c2.png"
+    ],
+    title: "CSV Lead Importer",
+    desc:
+      "Built a scalable CSV lead import platform with chunk-based parsing, validation, deduplication, and detailed error reporting. Designed the backend as a stateless service to support concurrent import jobs and horizontal scaling.",
+    tech: [
+      "nextjs",
+      "node",
+      "gemini",
+      "docker",
+      "systemdesign",
+    ],
+    github: "https://github.com/Atharva759/CSV-Lead-Importer",
+    live: "https://csv-lead-importer.vercel.app",
+  },
   {
     images: ["/images/urlshort/u1.png","/images/urlshort/u2.png",],
     title: "URL Shortner",
     desc:
       "Built a URL shortener that generates compact links from long URLs, ensuring efficient redirection and a clean user experience.",
-    tech: ["java","react", "springboot", "postgresql","systemdesign"],
+    tech: ["java","react", "springboot", "postgresql","systemdesign","docker"],
     github: "https://github.com/Atharva759/URL-Shortner-App",
     live: "https://make-short.vercel.app/",
   },
@@ -32,7 +50,7 @@ export const PROJECTS: {
     title: "Employee Management System",
     desc:
       "A full-stack employee portal for attendance, leave management, and approvals with JWT-based authentication and optimized database queries.",
-    tech: ["java","react", "springboot", "postgresql"],
+    tech: ["java","react", "springboot", "postgresql","docker"],
     github: "https://github.com/Atharva759/Employee-Management-System",
     live: "https://employee-management-sys-afk.vercel.app/",
   },

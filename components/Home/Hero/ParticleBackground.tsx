@@ -1,29 +1,32 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+import Particles, {
+  initParticlesEngine,
+} from "@tsparticles/react";
+
 import {
-  type Container,
   type ISourceOptions,
   MoveDirection,
   OutMode,
 } from "@tsparticles/engine";
+
 import { loadSlim } from "@tsparticles/slim";
 
+
 export default function ParticleBackground() {
-  const [init, setInit] = useState(false);
+  const [initialized, setInitialized] = useState(false);
+
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     }).then(() => {
-      setInit(true);
+      setInitialized(true);
     });
   }, []);
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
-  };
+
 
   const options: ISourceOptions = useMemo(
     () => ({
@@ -31,51 +34,174 @@ export default function ParticleBackground() {
         enable: true,
         zIndex: -1,
       },
+
+
       fpsLimit: 60,
+
+
+      detectRetina: true,
+
+
+      background: {
+        color: "transparent",
+      },
+
+
       interactivity: {
         events: {
-          onClick: { enable: true, mode: "push" },
-          onHover: { enable: true, mode: "repulse" },
+
+          onHover: {
+            enable: true,
+            mode: "grab",
+          },
+
+          onClick: {
+            enable: true,
+            mode: "push",
+          },
+
         },
+
+
         modes: {
-          push: { quantity: 4 },
-          repulse: { distance: 100, duration: 0.4 },
+
+          grab: {
+            distance: 140,
+            links: {
+              opacity: 0.5,
+            },
+          },
+
+
+          push: {
+            quantity: 3,
+          },
+
         },
       },
+
+
+
       particles: {
-        color: { value: "#ffffff" },
+
+        number: {
+          value: 45,
+
+          density: {
+            enable: true,
+            area: 900,
+          },
+        },
+
+
+        color: {
+          value: [
+            "#22d3ee",
+            "#3b82f6",
+            "#818cf8",
+          ],
+        },
+
+
         links: {
-          color: "#ffffff",
-          distance: 150,
           enable: true,
-          opacity: 0.4,
+
+          distance: 160,
+
+          color: "#38bdf8",
+
+          opacity: 0.18,
+
           width: 1,
         },
+
+
         move: {
-          direction: MoveDirection.none,
+
           enable: true,
-          outModes: { default: OutMode.out },
-          speed: 2,
+
+          direction: MoveDirection.none,
+
+          speed: 0.8,
+
+          random: true,
+
+          straight: false,
+
+
+          outModes: {
+            default: OutMode.out,
+          },
+
         },
-        number: {
-          density: { enable: true, area: 800 },
-          value: 60,
+
+
+
+        opacity: {
+
+          value: {
+            min: 0.15,
+            max: 0.45,
+          },
+
+          animation: {
+            enable: true,
+            speed: 1,
+            minimumValue: 0.1,
+          },
+
         },
-        opacity: { value: 0.5 },
-        shape: { type: "circle" },
-        size: { value: { min: 1, max: 4 } },
+
+
+
+        size: {
+
+          value: {
+            min: 1,
+            max: 3,
+          },
+
+
+          animation: {
+            enable: true,
+            speed: 2,
+            minimumValue: 0.5,
+          },
+
+        },
+
+
+        shape: {
+          type: "circle",
+        },
+
+
+        shadow: {
+          enable: true,
+
+          color: "#22d3ee",
+
+          blur: 8,
+        },
+
       },
-      detectRetina: true,
+
+
     }),
     []
   );
 
-  if (!init) return null;
+
+
+  if (!initialized) {
+    return null;
+  }
+
+
 
   return (
     <Particles
-      id="tsparticles"
-      particlesLoaded={particlesLoaded}
+      id="portfolio-particles"
       options={options}
     />
   );

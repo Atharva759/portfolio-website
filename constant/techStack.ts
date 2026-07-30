@@ -1,18 +1,18 @@
 import {
   FaJava,
 } from "react-icons/fa";
+import { FaAws } from "react-icons/fa6";
 import {
   SiCplusplus,
   SiJavascript,
   SiTypescript,
   SiHtml5,
-  SiCss3,
+  SiCss,
   SiReact,
   SiNextdotjs,
   SiTailwindcss,
   SiNodedotjs,
   SiSpringboot,
-  SiAmazon,
   SiMysql,
   SiMongodb,
   SiPostgresql,
@@ -22,7 +22,8 @@ import {
   SiJunit5,
   SiFigma,
   SiFirebase,
-  SiGooglegemini
+  SiGooglegemini,
+  SiDocker
 } from "react-icons/si";
 import { FcServices } from "react-icons/fc";
 
@@ -54,7 +55,7 @@ export const TECH_STACK = {
   },
   css: {
     label: "CSS",
-    icon: SiCss3,
+    icon: SiCss,
     color: "#1572B6",
   },
   react: {
@@ -84,7 +85,7 @@ export const TECH_STACK = {
   },
   aws: {
     label: "AWS",
-    icon: SiAmazon,
+    icon: FaAws,
     color: "#FF9900",
   },
   mysql: {
@@ -141,5 +142,10 @@ export const TECH_STACK = {
     label:"Google Gemini",
     icon:SiGooglegemini,
     color:"#772bfb"
+  },
+  docker:{
+    label : "Docker",
+    icon: SiDocker,
+    color: "#1D63ED"
   }
 } as const;
