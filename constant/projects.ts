@@ -35,7 +35,7 @@ export const PROJECTS: {
       "Built a URL shortener that generates compact links from long URLs, ensuring efficient redirection and a clean user experience.",
     tech: ["java","react", "springboot", "postgresql","systemdesign","docker"],
     github: "https://github.com/Atharva759/URL-Shortner-App",
-    live: "https://make-short.vercel.app/",
+    live: "https://urlshortnrr.vercel.app",
   },
   {
     images: ["/images/aiquiz/p1.png","/images/aiquiz/p2.png","/images/aiquiz/p3.png"],
