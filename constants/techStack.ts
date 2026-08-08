@@ -66,7 +66,7 @@ export const TECH_STACK = {
   nextjs: {
     label: "Next.js",
     icon: SiNextdotjs,
-    color: "#FFFFFF",
+    color: "#000000",
   },
   tailwind: {
     label: "Tailwind",
@@ -111,7 +111,7 @@ export const TECH_STACK = {
   github: {
     label: "GitHub",
     icon: SiGithub,
-    color: "#FFFFFF",
+    color: "#000000",
   },
   postman: {
     label: "Postman",

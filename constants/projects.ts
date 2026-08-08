@@ -1,4 +1,4 @@
-import { TECH_STACK } from "@/constant/techStack";
+import { TECH_STACK } from "@/constants/techStack";
 
 type TechKey = keyof typeof TECH_STACK;
 
